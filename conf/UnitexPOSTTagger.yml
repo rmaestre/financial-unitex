@@ -1,0 +1,7 @@
+tmp_dir: '/tmp'
+unitex_dir: 'conf/unitex'
+delas_applied: 
+    en: ['en/operators.bin', 'en/symbols.bin', 'en/number.bin']
+allowed_flex_codes: []
+allowed_pos_tags: ['UNKNOWN', 'OPERATOR', 'SYMBOL', 'NUMBER']
+supported_langs: ['en']

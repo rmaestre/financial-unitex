@@ -1,0 +1,2 @@
+EBAY,eBay Inc.SYMBOL
+,,.PUNCTUATION
