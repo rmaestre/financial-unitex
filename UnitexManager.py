@@ -8,7 +8,7 @@ import yaml
 import pyunitex
 import uuid
 
-class UniteManager():
+class UnitexManager():
     
     def __init__(self):
         # Create a Unitex binding object
@@ -191,26 +191,27 @@ class UniteManager():
         detroy_unitex_env(self.conf, process_id)
         return salida
         
-        
-# Instanciate an object
-unitexManager = UniteManager()
+
+def main():        
+	# Instanciate an object
+	unitexManager = UnitexManager()
+	text = """ SIRI down 13,1021 y YHOO up 100.12333335"""
 
 
-text = """ SIRI down 13,1021 y YHOO up 100.12333335"""
+	# Get tokens
+	tokens_result = unitexManager.tokenizer(text, "en")
+	print 'Tokens: ',tokens_result
 
+	# Apply POSTtagging
+	pos_tagging = unitexManager.postagger(tokens_result, "en")
+	print 'Pos tagging: ',pos_tagging
 
-# Get tokens
-tokens_result = unitexManager.tokenizer(text, "en")
-print 'Tokens: ',tokens_result
+	# Apply Grammar
+	grammar = unitexManager.grammar(tokens_result, pos_tagging, "en")
+	print '=> ',grammar
 
-# Apply POSTtagging
-pos_tagging = unitexManager.postagger(tokens_result, "en")
-print 'Pos tagging: ',pos_tagging
-
-# Apply Grammar
-grammar = unitexManager.grammar(tokens_result, pos_tagging, "en")
-print '=> ',grammar
-
+if __name__ == '__main__':
+	main(sys.argv[1:])
 
 
 
